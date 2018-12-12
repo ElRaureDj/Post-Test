@@ -1,0 +1,50 @@
+
+<app-navbar></app-navbar>
+<div class="container-wrapper container d-flex justify-content-center align-items-center">
+    
+    <div class="form-wrapper text-center">
+      <h2 class="text-center">Register</h2>
+        <form [formGroup]="registerForm" (submit)="onAddUser()" novalidate>
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Name</mat-label>
+              <input #nameUser matInput type="text" class="form-control" id="name-input" formControlName="name">
+              <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput  type="email" class="form-control" id="email-input" formControlName="email">
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+          </div>  
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" class="form-control" id="password-input" placeholder="Password" formControlName="password">
+              <mat-icon matSuffix>vpn_key</mat-icon>
+            </mat-form-field>
+          </div>
+            <hr>
+            <div class="form-group">
+              <h5>Browse Avatar:</h5>
+              <input type="file" accept=".png, .jpg" (change)="onUpload($event)">
+            </div>
+            <div class="progress">
+              <div [style.visibility]="(uploadPercent == 0) ? 'hidden' : 'visible'" class="progress-bar progress-bar-striped bg-success"
+                role="progressbar" [style.width]="(uploadPercent | async) +'%'">
+
+                <!-- <span class="progressText" *ngIf="urlImage | async">
+                  Ok!!</span> -->
+              </div>
+            </div>
+            <br>
+            <input #imageUser type="hidden" [value]="urlImage | async">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">Submit</button>
+          <div class="form-group">
+            <a routerLink="/login" class="form-control login-user">Do you have account?</a>
+          </div>
+        </form>
+    </div>
+</div>

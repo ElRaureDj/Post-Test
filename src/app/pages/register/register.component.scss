@@ -1,0 +1,39 @@
+// h2 {
+//     margin-bottom: 1em;
+// }
+// .form-control.login-user {
+//     border: 0px solid #fff !important;
+//   }
+// .form-wrapper {
+//     min-width: 40%;
+//     margin-bottom: 10%;
+//     border: 2px solid #542345;
+//     padding: 1em 2em;
+// }
+// .displayName {
+//     margin-right: 0.5em;
+// }
+// .mat-form-field.mat-form-field {
+//     font-size: 14px;
+//   }
+
+  .container {
+    height: 100vh;
+}
+
+h2 {
+    margin-bottom: 1em;
+}
+.form-control.login-user {
+    border: 0 solid #fff !important;
+  }
+.form-wrapper {
+    min-width: 40%;
+    margin-bottom: 10%;
+    border: 2px solid #542345;
+    padding: 1em 2em;
+}
+
+:host{
+    height: 100%;
+}

@@ -1,0 +1,22 @@
+<div class="messageContainer"
+[ngClass]="{'isOwnMessageContainer':isOwnMessage}">
+    <div class="image-wrapper img">
+      <img [src]="post.sender.photoUrl" class="rounded-circle img-thumbnail">
+    </div>
+    <div class="messageData">
+      <div class="sender"
+        [ngClass]="{'isOwnSender':isOwnMessage}">
+        {{post?.sender.displayName}}
+      </div>
+      <small class="timestamp"
+      [ngClass] = "{'isOwnTimestamp':isOwnMessage}">
+      {{post?.createdAt | date:'medium'}}</small>
+    </div> 
+    <div class="messageContent"
+    [ngClass]="{'isOwnMessageContent':isOwnMessage}">
+      {{post?.message}}
+    </div>
+    <div class="postPicture" *ngIf="post?.picture">
+      <img src="{{post.picture}}" class="img-thumbnail pic" alt="profile">
+    </div>
+  </div>

@@ -1,0 +1,63 @@
+.buttonPost{
+    height: 60px;
+    width: 100%;
+}
+
+@media (max-width: 400px) {
+    mat-form-field {
+        width: 340px;
+    }
+    .column2{
+        width: 340px;
+    }
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    mat-form-field {
+        width: 450px;
+    }
+    .column2{
+        width: 450px;
+    }
+} 
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    mat-form-field {
+        width: 450px;
+    }
+    .column2{
+        width: 450px;
+    }
+} 
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    mat-form-field {
+        width: 620px;
+    }
+    .column2{
+        width: 620px;
+    }
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    mat-form-field {
+        width: 860px;
+    }
+    .column2{
+        width: 860px;
+    }
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    mat-form-field {
+        width: 1040px;
+    }
+    .column2{
+        width: 1040px;
+    }
+}
+

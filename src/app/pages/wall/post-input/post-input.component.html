@@ -1,0 +1,24 @@
+<div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm">
+  <div class="container">
+      <div class="row">
+        <form [formGroup]="postForm" (submit)="submit()" novalidate>
+            <div class="lh-100">
+              <div class="col-sm-2">
+                <mat-form-field hintLabel="Max 255 characters">
+                    <mat-label>Enter a new message</mat-label>
+                    <input matInput color="accent" #input minlength="1" maxlength="255" placeholder="Enter a new message" type="text" class="form-control" id="text_input" formControlName="text">
+                    <mat-icon matSuffix>textsms</mat-icon>
+                    <mat-hint align="end">{{input.value?.length || 0}}/255</mat-hint>
+                </mat-form-field>
+              </div>
+              <br>
+              <div class="column2">
+                  <button mat-raised-button color="primary"class="buttonPost col-sm-6" type="submit" [disabled]="!postForm.valid || loading">POST</button>
+                  <input class="col-sm-6" type="file" accept=".png, .jpg" (change)="onUpload($event)">
+                  <mat-spinner *ngIf="loading" [diameter]=30></mat-spinner>
+              </div>
+            </div>
+        </form>
+      </div>
+  </div>  
+</div>

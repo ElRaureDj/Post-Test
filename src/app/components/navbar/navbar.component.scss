@@ -1,0 +1,25 @@
+// .nav-item, span {
+//     color: blue;
+// }
+
+// a {
+//     color: white;
+//     margin-left: 3em;
+
+//     &.active {
+//         border-bottom: 3px solid white;
+//     }
+// }
+#logo{
+    display: inline-block;
+    background: url('../../../assets/logo.png') no-repeat;
+    background-size: cover;
+    margin: 12px 10px 12px 32px;
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+}
+#userEmail {
+    padding-right: 16px;
+    font-weight: bold;
+}

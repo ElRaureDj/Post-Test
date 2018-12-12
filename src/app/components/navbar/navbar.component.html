@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-purple">
+    <div id="logo"></div>
+    <a class="navbar-brand mr-auto mr-lg-0" id="heading" href="#">{{app_name}}</a>
+    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas" onclick="myFunction()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto" *ngIf="isLogged">
+        
+      </ul>
+      <ul class="navbar-nav my-2 my-lg-0" *ngIf="isLogged else loggedOut">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/profile" routerLinkActive="active">Hello, {{userEmail}}</a>
+        </li>  
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/wall" routerLinkActive="active">Wall <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/profile" routerLinkActive="active">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" (click)="onLogout()">Logout</a>
+        </li>
+      </ul>
+      <ng-template #loggedOut>
+        <ul class="navbar-nav mr-auto">
+      
+        </ul>
+        <ul class="navbar-nav my-2 my-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
+          </li>
+        </ul>
+      </ng-template>
+    </div>
+  </nav>
+
+  <div class="nav-scroller bg-white shadow-sm">
+      <nav class="nav nav-underline">
+        
+      </nav>
+    </div>

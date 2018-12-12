@@ -1,0 +1,14 @@
+
+<app-navbar></app-navbar>
+<main role="main" class="container">
+  <app-post-input></app-post-input>
+  <div class="post-wrapper h-100">
+    <cdk-virtual-scroll-viewport itemSize="200">
+
+        <div *cdkVirtualFor="let post of posts;" class="animated lightSpeedIn item-wrap">          
+            <app-post-message [post]="post"></app-post-message>
+        </div>
+      
+    </cdk-virtual-scroll-viewport>
+  </div>
+</main>
