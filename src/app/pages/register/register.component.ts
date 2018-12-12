@@ -18,9 +18,12 @@ export class RegisterComponent implements OnInit{
 
   uploadPercent: Observable<number>;
   urlImage: Observable<string>;
+  public urlDefault: string = '';
+  
   
   constructor(private fb: FormBuilder, private router: Router, private authService: AuthService, private storage: AngularFireStorage) { 
     this.createForm();
+    this.urlDefault = 'https://firebasestorage.googleapis.com/v0/b/forum-test-d788c.appspot.com/o/uploads%2Fprofile_zgts61mzro?alt=media&token=79385a1f-f171-44aa-aa5e-56c37d63231a';
   }
   @ViewChild('imageUser') inputImageUser: ElementRef;
   @ViewChild('nameUser') inputName: ElementRef;
@@ -47,15 +50,20 @@ export class RegisterComponent implements OnInit{
   }
 
   onAddUser() {
+    console.log('urlDefault', this.urlDefault );
     if (this.registerForm.valid) {
       const {email, password} = this.registerForm.value;
+      if(this.inputImageUser.nativeElement.value != '') 
+        {this.urlDefault = this.inputImageUser.nativeElement.value};
+      console.log('inputImageUser', this.inputImageUser.nativeElement.value );
+      console.log('urlDefault', this.urlDefault );
       this.authService.registerUser(email, password)
         .then((res) => {
           this.authService.isAuth().subscribe(user => {
             if (user) {
               user.updateProfile({
                 displayName: this.inputName.nativeElement.value,
-                photoURL: this.inputImageUser.nativeElement.value
+                photoURL: this.urlDefault
               }).then(() => {
                 this.router.navigate(['/wall']);
               }).catch((error) => console.log('error', error));

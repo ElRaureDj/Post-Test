@@ -58,7 +58,6 @@ export class MessagesService {
         sender: {displayName: this.user.displayName, email: this.user.email, photoUrl: this.user.photoUrl}
       };
      
-     
       this.db.collection(`post`).add(message);
     }    
     )

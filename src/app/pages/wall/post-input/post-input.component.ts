@@ -23,6 +23,7 @@ export class PostInputComponent implements OnInit {
     this.createForm(); 
     
     this.loading = false;
+    this.urlImage = '';
   }
 
 

@@ -1,7 +1,7 @@
 <div class="messageContainer"
 [ngClass]="{'isOwnMessageContainer':isOwnMessage}">
-    <div class="image-wrapper img">
-      <img [src]="post.sender.photoUrl" class="rounded-circle img-thumbnail">
+    <div class="image-wrapper">
+      <img [src]="post.sender.photoUrl" class="rounded-circle img-thumbnail imgMessageUser">
     </div>
     <div class="messageData">
       <div class="sender"
@@ -17,6 +17,6 @@
       {{post?.message}}
     </div>
     <div class="postPicture" *ngIf="post?.picture">
-      <img src="{{post.picture}}" class="img-thumbnail pic" alt="profile">
+      <img src="{{post?.picture}}" class="img-thumbnail pic" alt="profile">
     </div>
   </div>

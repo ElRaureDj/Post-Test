@@ -11,17 +11,24 @@ import { User } from '../../../classes/user'
 export class PostMessageComponent implements OnInit {
 
   @Input() post: PostMessage;
-  userEmail: string; 
-  isOwnMessage: boolean;
-  ownEmail: string;
+  userEmail: string = ''; 
+  isOwnMessage: boolean = false;
+  ownEmail: string = '';
 
   constructor(private authService: AuthService) {
-    authService.isAuth().subscribe(user => {
-      this.ownEmail = user.email;
-      this.isOwnMessage = this.ownEmail === this.userEmail;
-    });}
-  ngOnInit(){
-
+    this.authService.isAuth().subscribe(user =>
+      {
+        if (user) {
+          this.ownEmail = user.email;
+          this.isOwnMessage = this.ownEmail === this.userEmail;
+          return;
+        } else{
+          return false;
+        }
+    });
+    }
+  ngOnInit(post = this.post){
+    this.userEmail = post.sender.email;
   }
   
 
